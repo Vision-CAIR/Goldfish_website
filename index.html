@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Goldfish">
+  <meta name="keywords" content="Long video understanding, vision-language, video question answering">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Goldfish</title>
+
+  <meta name="google-site-verification" content="6lbYN1vX7A4sD8SrVniq84UEKyEUSBgxeP7d3FjuuK0" />
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <!-- <link rel="icon" href="./static/images/icon.png"> -->
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <link rel="shortcut icon" href="path/to/favicon.ico" type="image/x-icon">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  </head>
+
+  <style>
+
+    #main{
+        position: relative;;
+        width: 1200px;
+    }
+
+    .box{
+        float: left;
+        padding: 15px 0 0 15px;
+/*        background-color: red;*/
+    }
+
+    .pic{
+        width: 500px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    .pic img{
+        width: 800px;
+    }
+
+  </style>
+
+
+
+  <body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <div class="title_container">
+            <img src="repo_imgs\goldfishai_png.png" width="80" height="80">
+            <h1 class="title is-1 publication-title">Goldfish</h1>
+        </div>
+          <h2 class="title is-2 publication-title">Vision-Language Understanding of Arbitrarily Long Videos</h2>
+          <div class="is-size-5">
+            <span class="author-block">
+                <a href="https://www.linkedin.com/in/kirolos-a-ataallah-631755123/" style="color:#008AD7;font-weight:normal;">Kirolos Ataallah
+                </a>,                
+            </span>
+            <span class="author-block">
+              <a href="https://xiaoqian-shen.github.io/" style="color:#008AD7;font-weight:normal;">Xiaoqian Shen</a>,</span>
+            <span class="author-block">
+              <a href="https://eslambakr.github.io/" style="color:#008AD7;font-weight:normal;">Eslam Abdelrahman</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://essamsleiman.com" style="color:#008AD7;font-weight:normal;">Essam Sleiman</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://metauto.ai/" style="color:#008AD7;font-weight:normal;">Mingchen Zhuge</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://tsutikgiau.github.io/" style="color:#008AD7;font-weight:normal;">Deyao Zhu</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://dingjiansw101.github.io/" style="color:#008AD7;font-weight:normal;">Jian Ding</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://people.idsia.ch/~juergen/" style="color:#F2A900;font-weight:normal;">Jürgen Schmidhuber</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.mohamed-elhoseiny.com/" style="color:#008AD7;font-weight:normal;">Mohamed Elhoseiny</a>
+            </span>
+
+          </div>
+
+          <br>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><b style="color:#008AD7; font-weight:normal">&#x25B6 </b> King Abdullah University of Science and Technology </span>
+            <span class="author-block"><b style="color:#F2A900; font-weight:normal">&#x25B6 </b>The Swiss AI Lab IDSIA, USI, SUPSI</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+          </div>
+
+          <br>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="http://arxiv.org/abs/2404.03413" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://github.com/Vision-CAIR/MiniGPT4-video" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="#videoDemo" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+
+             <span class="link-block">
+               <a href="https://huggingface.co/datasets/Vision-CAIR/TVQA-Long/tree/main" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                 <span class="icon">
+                   <i class="fa fa-database"></i>
+                 </span>
+                 <span>Dataset</span>
+                 </a>
+              </span> 
+
+              <span class="link-block">
+                <a href="https://huggingface.co/Vision-CAIR/MiniGPT4-Video" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fa fa-laugh"></i>
+                  </span>
+                  <span>Model</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/Vision-CAIR/Goldfish" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <img src="repo_imgs\goldfishai_png.png" alt="Demo Icon">
+                    </span>
+                    <span>Demo</span>
+                </a>
+            </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<link rel="stylesheet" type="text/css" href="js/simple_style.css" />
+<script type="text/javascript" src="js/simple_swiper.js"></script>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Most current LLM-based models for video understanding
+can process videos within minutes. However, they struggle with lengthy
+videos due to challenges such as “noise and redundancy", as well as “mem-
+ory and computation" constraints. In this paper, we present Goldfish,
+a methodology tailored for comprehending videos of arbitrary lengths.
+We also introduce the TVQA-long benchmark, specifically designed to
+evaluate models' capabilities in understanding long videos with questions
+in both vision and text content. Goldfish approaches these challenges
+with an efficient retrieval mechanism that initially gathers the top-k
+video clips relevant to the instruction before proceeding to provide the
+desired response. This design of the retrieval mechanism enables the
+Goldfish to efficiently process arbitrarily long video sequences, facilitating
+its application in contexts such as movies or television series. To facili-
+tate the retrieval process, we developed MiniGPT4-Video that generates
+detailed descriptions for the video clips. In addressing the scarcity of
+benchmarks for long video evaluation, we adapted the TVQA short video
+benchmark for extended content analysis by aggregating questions from
+entire episodes, thereby shifting the evaluation from partial to full episode
+comprehension. We attained a 41.78% accuracy rate on the TVQA-long
+benchmark, surpassing previous methods by 14.94%. Our MiniGPT4-
+Video also shows exceptional performance in short video comprehension,
+exceeding existing state-of-the-art methods by 3.23%, 2.03%, 16.5% and
+23.59% on the MSVD, MSRVTT, TGIF,and TVQA short video bench-
+marks, respectively. These results indicate that our models have significant
+improvements in both long and short-video understanding.
+            </b>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+    <br>
+    <br>
+    <div class="container">
+      <h2 class="title has-text-centered">Video Demo</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="publication-video" id="videoDemo">
+            <video width="760" height="515" controls>
+              <source src="https://minigpt-4.s3.amazonaws.com/demo.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+    <br>
+    <br>
+    <!-- Paper Model. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Goldfish frame work</h2>
+        <div class="content has-text-justified">
+        </div>
+        <img id="model" width="80%" src="repo_imgs\goldfish_framework.JPG">
+        <h3 class="subtitle has-text-centered">
+          <p style="font-family:Times New Roman"><b>Goldfish framework,First break down the long video into clips, then encode them in Video
+            Descriptor according to their timing and corresponding subtitles, then encode the use query and
+            retrieve the most related clips in the retrieval module, and finally send the top-K clips information
+            to the answer module to get the final answer.</b></p>
+        </h3>
+        <br>
+        <br>
+        <h2 class="title is-3">Video Discriptor (MiniGPT4-video)</h2>
+        <img id="model" width="80%" src="repo_imgs\MiniGPT4-video_fig.jpg">
+        <h3 class="subtitle has-text-centered">
+          <p style="font-family:Times New Roman"><b>MiniGPT4-video architecture: For each frame, we use EVA-CLIP to get the visual tokens and
+            concatenate each adjacent visual token into a singular token then convert these tokens to the language
+            model space using a linear layer and get the language token from LLM tokenizer. Concatenate both
+            the visual and subtitle text tokens together and do this for all the sampled frames and appending
+            the instruction tokens at the end of the input sequence.</b></p>
+        </h3>
+        <br>
+        <br>
+      </div>
+    </div>
+    <br>
+    <!-- Paper Model. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Results</h2>
+        <div class="content has-text-justified">
+          <h2>Long Video Benchmarking</h2>
+          <p>
+            <b>We evaluate the efficacy of our proposed frame-
+              work, Goldfish:, across several well-established benchmarks, specifically the
+              LLama-Vid, MovieChat, Movie QA, and TVQA-Long datasets.
+              To thoroughly examine our framework's capabilities, we analyze input modalities
+              in two configurations: vision-only (V) and vision combined with input subtitles
+              (V+T).
+              Our findings, detailed in Table 3, indicate that our framework surpasses all
+              existing long video baselines in the vision modality.We establish state-of-the-art
+              (SOTA) performance on these challenging benchmarks. This achievement holds
+              true even under an unfair comparison against LLama-Vid [20], which benefits
+              from using the MovieNet dataset while training and these movies are in both LLama-Vid
+              benchmark and Movie QA. Despite this advantage, our results significantly
+              outperform the competition.
+              Incorporating both video frames and aligned subtitles into our model leads
+              to an average performance boost of 8% across the benchmarks. As highlighted in
+              Table 3, this enhanced approach enables us to outperform LLama-Vid on
+              the TVQA benchmark, providing a fair comparison since LLama-Vid utilizes
+              the other benchmarks during its training phase.</b>:
+          </p>
+        <img id="model" width="100%" src="repo_imgs\Goldfish_results_table.JPG">
+        <br>
+        <br>
+        <h2>Short Video Benchmarking</h2>
+        <p>
+          <b>On short-video understanding, we continue to
+            secure state-of-the-art (SOTA) results, outperforming contemporaneous works,
+            including LLama-Vid. To validate our framework's proficiency in short-video
+            analysis, we conducted evaluations against current SOTA methodologies across
+            an extensive suite of five benchmarks: Video ChatGPT, MSVD, MSRVTT, TGIF,
+            and TVQA. These benchmarks collectively offer a comprehensive platform for
+            assessing short-video comprehension capabilities, with five focusing on open-ended
+            questions and TVQA featuring multiple-choice questions.
+            Our results, presented in Tables 4 and 5, demonstrate our framework's superi-
+            ority over competing methods by a significant margin, affirming our considerable
+            advancements across a varied and demanding collection of benchmarks. To thor-
+            oughly evaluate our approach, we devised two variations of our framework: one
+            analyzing purely visual elements and another incorporating subtitles. The per-
+            formance enhancements achieved with these models are noteworthy, registering
+            gains of 3.23%, 2.03%, 16.5% and 23.59% on the MSVD, MSRVTT, TGIF, and
+            TVQA benchmarks respectively. This underscores our framework's ability to
+            achieve SOTA results across the board, markedly elevating performance in the
+            domain of short-video understanding.</b></p>
+
+        <img id="model" width="100%" src="repo_imgs\short_video_results.JPG">
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="js/Underscore-min.js"></script>
+<script src="js/index.js"></script>
+
+<section class="section">
+  <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+      <div class="column is-six-fifths">
+        <h2 class="title is-3">Examples</h2>
+          <div>
+            <img src="images/2.png" alt="">
+            <img src="images/3.png" alt="">
+            <img src="images/4.png" alt="">
+            <img src="images/5.png" alt="">
+            <img src="images/6.png" alt="">
+            <img src="images/7.png" alt="">
+            <img src="images/8.png" alt="">
+        </div>
+    </div>
+  </div>
+    </div>
+</section>
+
+<section class="section" id="BibTeX">
+ <div class="container is-max-desktop content">
+   <h2 class="title">BibTeX</h2>
+   <pre><code>
+
+    Goldfish here 
+    @misc{ataallah2024minigpt4videoadvancingmultimodalllms,
+      title={MiniGPT4-Video: Advancing Multimodal LLMs for Video Understanding with Interleaved Visual-Textual Tokens}, 
+      author={Kirolos Ataallah and Xiaoqian Shen and Eslam Abdelrahman and Essam Sleiman and Deyao Zhu and Jian Ding and Mohamed Elhoseiny},
+      year={2024},
+      eprint={2404.03413},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2404.03413}, 
+    }
+
+</code></pre>
+ </div>
+</section>
+
+
+
+<section class="section" id="Acknowledgement">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgement</h2>
+    <p>
+      This website is adapted from <a
+      href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>, licensed under a <a rel="license"
+                                          href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+      Commons Attribution-ShareAlike 4.0 International License</a>.
+    </p>
+  </div>
+</section>
+
+</body>
+
+</html>
