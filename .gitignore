@@ -180,7 +180,7 @@ slurm*
 sbatch_generate*
 # ignore all videos and subtitles
 # *.mp4
-*.mp3
+# *.mp3
 *.vtt
 *.mkv
 *.srt
